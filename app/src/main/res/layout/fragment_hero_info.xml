@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:theme="@style/HeroFragmentTheme"
+    tools:context=".fragments.encyclopedia.heroes.hero_info.HeroInfoFragment">
+    <!--background is for debug purposes in ide only-->
+    <!--remove the background tag when doen with this xml file-->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hero_horizontal_guideline_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hero_horizontal_guideline_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hero_vertical_guideline_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hero_vertical_guideline_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/stats_vertical_guideline_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/stats_vertical_guideline_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+    <ImageView
+        android:id="@+id/info_hero_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/npc_dota_hero_drow_ranger_png"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/hero_horizontal_guideline_2"
+        app:layout_constraintEnd_toEndOf="@id/hero_vertical_guideline_2"
+        app:layout_constraintStart_toStartOf="@id/stats_vertical_guideline_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_attribute"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/agility_attribute_symbol"
+        app:layout_constraintStart_toStartOf="@id/hero_vertical_guideline_2"
+        app:layout_constraintTop_toTopOf="@id/info_hero_name"
+        app:layout_constraintBottom_toBottomOf="@id/info_hero_name" />
+
+    <TextView
+        android:id="@+id/info_hero_name"
+        android:layout_width="0dp"
+        android:layout_height="32sp"
+        android:layout_margin="8dp"
+        android:textColor="@android:color/white"
+        android:text="ANCIENT APPARITON"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="16sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/main_attribute"
+        app:layout_constraintTop_toTopOf="@id/info_hero_image" />
+
+    <TextView
+        android:id="@+id/info_hero_roles"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="4dp"
+        android:text="RANGED   CARRY   JUNGLER"
+        android:lines="2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/info_hero_image"
+        app:layout_constraintEnd_toEndOf="@id/stats_vertical_guideline_2"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/info_hero_name" />
+
+   <ScrollView
+       android:layout_width="0dp"
+       android:layout_height="0dp"
+       app:layout_constraintTop_toTopOf="@id/hero_horizontal_guideline_2"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent" >
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent" >
+
+
+           <TextView
+               android:id="@+id/hype_text"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               app:fontFamily="@font/memo_std_regular"
+               android:text="With each swipe of his claws, Ursa increases his target's vulnerability to his next attack. Capable of briefly increasing how swiftly he can strike, and able to slow down nearby prey, he quickly tears apart his enemies."
+               android:textSize="14sp"
+               android:layout_marginTop="8dp"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:layout_marginHorizontal="16dp"
+               app:layout_constraintBottom_toTopOf="@id/stats_text"/>
+
+           <TextView
+               android:id="@+id/stats_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="8dp"
+               android:text="STATS"
+               android:textSize="22sp"
+               app:layout_constraintStart_toStartOf="@id/hype_text"
+               app:layout_constraintTop_toBottomOf="@id/hype_text" />
+
+           <TextView
+               android:id="@+id/attributes_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="4dp"
+               android:text="ATTRIBUTES"
+               android:textSize="16sp"
+               app:fontFamily="@font/penumbra_regular"
+               app:layout_constraintStart_toStartOf="@id/stats_text"
+               app:layout_constraintTop_toBottomOf="@id/stats_text" />
+
+           <ImageView
+               android:id="@+id/strength_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/strength_attribute_symbol"
+               app:layout_constraintStart_toStartOf="@id/attributes_text"
+               app:layout_constraintTop_toTopOf="@id/str_per_level_text"
+               app:layout_constraintBottom_toBottomOf="@id/str_per_level_text" />
+
+           <TextView
+               android:id="@+id/str_per_level_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="00 + 0.0"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/strength_icon"
+               app:layout_constraintStart_toEndOf="@id/strength_icon"
+               app:layout_constraintTop_toBottomOf="@id/attributes_text"/>
+
+           <ImageView
+               android:id="@+id/agility_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/agility_attribute_symbol"
+               app:layout_constraintStart_toStartOf="@id/strength_icon"
+               app:layout_constraintTop_toTopOf="@id/agi_per_level_text"
+               app:layout_constraintBottom_toBottomOf="@id/agi_per_level_text" />
+
+           <TextView
+               android:id="@+id/agi_per_level_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="23 + 3.0"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/agility_icon"
+               app:layout_constraintStart_toEndOf="@id/agility_icon"
+               app:layout_constraintTop_toBottomOf="@id/str_per_level_text" />
+
+           <ImageView
+               android:id="@+id/intelligence_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:src="@drawable/intelligence_attribute_symbol"
+               app:layout_constraintStart_toStartOf="@id/agility_icon"
+               app:layout_constraintTop_toTopOf="@id/int_per_level_text"
+               app:layout_constraintBottom_toBottomOf="@id/int_per_level_text"/>
+
+           <TextView
+               android:id="@+id/int_per_level_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginHorizontal="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="23 + 3.0"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/intelligence_icon"
+               app:layout_constraintStart_toEndOf="@id/intelligence_icon"
+               app:layout_constraintTop_toBottomOf="@id/agi_per_level_text" />
+
+           <TextView
+               android:id="@+id/attack_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="4dp"
+               android:text="ATTACK"
+               android:textSize="16sp"
+               app:fontFamily="@font/penumbra_regular"
+               app:layout_constraintStart_toEndOf="@id/str_per_level_text"
+               app:layout_constraintEnd_toStartOf="@id/defense_text"
+               app:layout_constraintTop_toBottomOf="@id/stats_text" />
+
+           <ImageView
+               android:id="@+id/attack_damage_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_damage_psd"
+               app:layout_constraintStart_toStartOf="@id/attack_text"
+               app:layout_constraintTop_toTopOf="@id/attack_distribution"
+               app:layout_constraintBottom_toBottomOf="@id/attack_distribution"/>
+
+           <TextView
+               android:id="@+id/attack_distribution"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="00-00"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/attack_damage_icon"
+               app:layout_constraintStart_toEndOf="@id/attack_damage_icon"
+               app:layout_constraintTop_toBottomOf="@id/attack_text"/>
+
+           <ImageView
+               android:id="@+id/attack_rate_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_attack_speed_psd"
+               app:layout_constraintStart_toStartOf="@id/attack_damage_icon"
+               app:layout_constraintTop_toTopOf="@id/attack_rate_text"
+               app:layout_constraintBottom_toBottomOf="@id/attack_rate_text" />
+
+           <TextView
+               android:id="@+id/attack_rate_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:text="1.7"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/attack_rate_icon"
+               app:layout_constraintStart_toEndOf="@id/attack_rate_icon"
+               app:layout_constraintTop_toBottomOf="@id/attack_distribution" />
+
+           <ImageView
+               android:id="@+id/attack_range_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_attack_range_psd"
+               app:layout_constraintStart_toStartOf="@id/attack_rate_icon"
+               app:layout_constraintTop_toTopOf="@id/attack_range_text"
+               app:layout_constraintBottom_toBottomOf="@id/attack_range_text"/>
+
+           <TextView
+               android:id="@+id/attack_range_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="150"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/attack_range_icon"
+               app:layout_constraintStart_toEndOf="@id/attack_range_icon"
+               app:layout_constraintTop_toBottomOf="@id/attack_rate_text" />
+
+           <TextView
+               android:id="@+id/defense_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="4dp"
+               android:text="DEFENSE"
+               android:textSize="16sp"
+               app:fontFamily="@font/penumbra_regular"
+               app:layout_constraintStart_toEndOf="@id/attack_text"
+               app:layout_constraintEnd_toStartOf="@id/mobility_text"
+               app:layout_constraintTop_toBottomOf="@id/stats_text" />
+
+           <ImageView
+               android:id="@+id/armor_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_armor_psd"
+               app:layout_constraintStart_toStartOf="@id/defense_text"
+               app:layout_constraintTop_toTopOf="@id/armor_text"
+               app:layout_constraintBottom_toBottomOf="@id/armor_text"/>
+
+           <TextView
+               android:id="@+id/armor_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:text="00.0"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/armor_icon"
+               app:layout_constraintStart_toEndOf="@id/armor_icon"
+               app:layout_constraintTop_toBottomOf="@id/defense_text" />
+
+           <ImageView
+               android:id="@+id/magic_resistance_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:src="@drawable/icon_magic_resist_psd"
+               app:layout_constraintStart_toStartOf="@id/armor_icon"
+               app:layout_constraintTop_toTopOf="@id/magic_resistance_text"
+               app:layout_constraintBottom_toBottomOf="@id/magic_resistance_text"/>
+
+           <TextView
+               android:id="@+id/magic_resistance_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="25%"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/magic_resistance_icon"
+               app:layout_constraintStart_toEndOf="@id/magic_resistance_icon"
+               app:layout_constraintTop_toBottomOf="@id/armor_text" />
+
+           <TextView
+               android:id="@+id/mobility_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="4dp"
+               android:text="MOBILITY"
+               android:textSize="16sp"
+               app:fontFamily="@font/penumbra_regular"
+               app:layout_constraintStart_toEndOf="@id/defense_text"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/stats_text" />
+
+           <ImageView
+               android:id="@+id/movement_speed_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_speed_psd"
+               app:layout_constraintStart_toStartOf="@id/mobility_text"
+               app:layout_constraintTop_toTopOf="@id/movement_speed_text"
+               app:layout_constraintBottom_toBottomOf="@id/movement_speed_text"/>
+
+           <TextView
+               android:id="@+id/movement_speed_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="310"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/movement_speed_icon"
+               app:layout_constraintStart_toEndOf="@id/movement_speed_icon"
+               app:layout_constraintTop_toBottomOf="@id/mobility_text" />
+
+           <ImageView
+               android:id="@+id/turn_rate_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/icon_turn_rate_psd"
+               app:layout_constraintStart_toStartOf="@id/movement_speed_icon"
+               app:layout_constraintTop_toTopOf="@id/turn_rate_text"
+               app:layout_constraintBottom_toBottomOf="@id/turn_rate_text"/>
+
+           <TextView
+               android:id="@+id/turn_rate_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="0.5"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/turn_rate_icon"
+               app:layout_constraintStart_toEndOf="@id/turn_rate_icon"
+               app:layout_constraintTop_toBottomOf="@id/movement_speed_text" />
+
+           <ImageView
+               android:id="@+id/vision_icon"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp"
+               android:scaleType="fitXY"
+               android:adjustViewBounds="true"
+               android:src="@drawable/minimap_ward_obs_png"
+               app:layout_constraintStart_toStartOf="@id/turn_rate_icon"
+               app:layout_constraintBottom_toBottomOf="@id/vision_text"
+               app:layout_constraintTop_toTopOf="@id/vision_text"/>
+
+           <TextView
+               android:id="@+id/vision_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="1,800/800"
+               android:textSize="14sp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintBottom_toBottomOf="@id/vision_icon"
+               app:layout_constraintStart_toEndOf="@id/vision_icon"
+               app:layout_constraintTop_toBottomOf="@id/turn_rate_text" />
+
+           <TextView
+               android:id="@+id/level_seek_text"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:textAlignment="center"
+               android:layout_marginHorizontal="1dp"
+               android:text="Level: 1"
+               android:layout_marginStart="8dp"
+               app:fontFamily="@font/radiance_regular"
+               android:textSize="14sp"
+               android:textColor="#FFAF39"
+               android:shadowColor="#8F621F"
+               android:shadowDy="0"
+               android:shadowDx="0"
+               android:shadowRadius="5"
+               app:layout_constraintStart_toStartOf="@id/seek_bar"
+               app:layout_constraintBottom_toTopOf="@id/seek_bar"/>
+
+           <SeekBar
+               android:id="@+id/seek_bar"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:progressDrawable="@drawable/custom_seekbar"
+               android:thumb="@drawable/background_seek_bar_thumb"
+               app:layout_constraintTop_toTopOf="@id/health_bar"
+               app:layout_constraintStart_toStartOf="@id/defense_text"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintBottom_toBottomOf="@id/mana_bar"
+               />
+
+           <TextView
+               android:paddingTop="6dp"
+               android:id="@+id/hm_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="4dp"
+               android:text="HEALTH &amp; MANA"
+               android:textSize="14sp"
+               app:fontFamily="@font/penumbra_regular"
+               app:layout_constraintStart_toStartOf="@id/stats_text"
+               app:layout_constraintTop_toBottomOf="@id/int_per_level_text" />
+
+           <FrameLayout
+               android:id="@+id/health_bar"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_skill_health"
+               android:orientation="horizontal"
+               android:paddingHorizontal="4dp"
+               app:layout_constraintStart_toStartOf="@id/hm_text"
+               app:layout_constraintWidth_default="percent"
+               app:layout_constraintWidth_percent="0.3"
+               app:layout_constraintTop_toBottomOf="@id/hm_text">
+
+               <TextView
+                   android:id="@+id/health_text"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:shadowColor="@android:color/black"
+                   android:textSize="12sp"
+                   android:shadowDx="2"
+                   android:shadowDy="2"
+                   android:shadowRadius="2"
+                   android:text="666" />
+
+               <TextView
+                   android:id="@+id/health_regen_text"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:shadowColor="@android:color/black"
+                   android:textSize="12sp"
+                   android:shadowDx="2"
+                   android:shadowDy="2"
+                   android:shadowRadius="2"
+                   android:textColor="#6BC950"
+                   android:text="+1.9" />
+
+           </FrameLayout>
+
+
+           <FrameLayout
+               android:id="@+id/mana_bar"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/background_skill_mana"
+               android:orientation="horizontal"
+               android:paddingHorizontal="4dp"
+               android:layout_marginTop="3dp"
+               app:layout_constraintEnd_toEndOf="@id/health_bar"
+               app:layout_constraintStart_toStartOf="@id/health_bar"
+               app:layout_constraintTop_toBottomOf="@id/health_bar">
+
+               <TextView
+                   android:id="@+id/mana_text"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:shadowColor="@android:color/black"
+                   android:textSize="12sp"
+                   android:shadowDx="2"
+                   android:shadowDy="2"
+                   android:shadowRadius="2"
+                   android:text="666" />
+
+               <TextView
+                   android:id="@+id/mana_regen_text"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:shadowColor="@android:color/black"
+                   android:textSize="12sp"
+                   android:shadowDx="2"
+                   android:shadowDy="2"
+                   android:shadowRadius="2"
+                   android:textColor="#72B3FD"
+                   android:text="+1.9" />
+           </FrameLayout>
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/bars_vertical_guideline_1"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:orientation="vertical"
+               app:layout_constraintGuide_percent="0.22" />
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/bars_vertical_guideline_2"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:orientation="vertical"
+               app:layout_constraintGuide_percent="0.47" />
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/bars_vertical_guideline_3"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:orientation="vertical"
+               app:layout_constraintGuide_percent="0.65" />
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/bars_vertical_guideline_4"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:orientation="vertical"
+               app:layout_constraintGuide_percent="0.9" />
+
+           <TextView
+               android:id="@+id/roles_text"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginVertical="8dp"
+               android:text="ROLES"
+               android:textSize="22sp"
+               app:layout_constraintStart_toStartOf="@id/stats_text"
+               app:layout_constraintTop_toBottomOf="@id/mana_bar"
+               android:layout_marginTop="24dp"/>
+
+           <TextView
+               android:id="@+id/role_text_1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Carry"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/roles_text"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_1" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_1"
+               android:tag="carry"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toEndOf="@id/bars_vertical_guideline_1"
+               app:layout_constraintEnd_toEndOf="@id/bars_vertical_guideline_2"
+               app:layout_constraintTop_toTopOf="@id/role_text_1"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_1"
+               app:role_name="Carry"
+               app:level="0"/>
+
+
+           <TextView
+               android:id="@+id/role_text_2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Support"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_1"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_2" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_2"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_1"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_1"
+               app:layout_constraintTop_toTopOf="@id/role_text_2"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_2"
+               app:role_name="Support" />
+
+
+           <TextView
+               android:id="@+id/role_text_3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Nuker"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_2"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_3" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_3"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_2"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_2"
+               app:layout_constraintTop_toTopOf="@id/role_text_3"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_3"
+               app:role_name="Nuker" />
+
+
+           <TextView
+               android:id="@+id/role_text_4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Disabler"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_3"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_4" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_4"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_3"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_3"
+               app:layout_constraintTop_toTopOf="@id/role_text_4"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_4"
+               app:role_name="Disabler" />
+
+
+           <TextView
+               android:id="@+id/role_text_5"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Jungler"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_4"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_5" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_5"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_4"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_4"
+               app:layout_constraintTop_toTopOf="@id/role_text_5"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_5"
+               app:role_name="Jungler" />
+
+
+           <TextView
+               android:id="@+id/role_text_6"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Durable"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/roles_text"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_6" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_6"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toEndOf="@id/bars_vertical_guideline_3"
+               app:layout_constraintEnd_toEndOf="@id/bars_vertical_guideline_4"
+               app:layout_constraintTop_toTopOf="@id/role_text_6"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_6"
+               app:role_name="Carry" />
+
+           <TextView
+               android:id="@+id/role_text_7"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Escape"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_6"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_7" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_7"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_6"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_6"
+               app:layout_constraintTop_toTopOf="@id/role_text_7"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_7"
+               app:role_name="Escape" />
+
+           <TextView
+               android:id="@+id/role_text_8"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Pusher"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_7"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_8" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_8"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_7"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_7"
+               app:layout_constraintTop_toTopOf="@id/role_text_8"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_8"
+               app:role_name="Pusher" />
+
+           <TextView
+               android:id="@+id/role_text_9"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="2dp"
+               android:adjustViewBounds="true"
+               android:scaleType="fitCenter"
+               android:text="Initiator"
+               android:textSize="14sp"
+               android:layout_marginEnd="4dp"
+               app:fontFamily="@font/memo_std_regular"
+               app:layout_constraintTop_toBottomOf="@id/role_text_8"
+               app:layout_constraintEnd_toStartOf="@id/role_bar_9" />
+           <com.example.dotacompanion.views.RoleProgressView
+               android:id="@+id/role_bar_9"
+               android:layout_width="0dp"
+               android:layout_height="0dp"
+               android:layout_marginVertical="2dp"
+               app:layout_constraintStart_toStartOf="@id/role_bar_8"
+               app:layout_constraintEnd_toEndOf="@id/role_bar_8"
+               app:layout_constraintTop_toTopOf="@id/role_text_9"
+               app:layout_constraintBottom_toBottomOf="@id/role_text_9"
+               app:role_name="Initiator" />
+
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EncyclopediaItemView">
+        <attr name="card_image" format="reference"/>
+        <attr name="card_title" format="string"/>
+        <attr name="card_text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoleProgressView">
+        <attr name="role_name" format="string"/>
+        <attr name="text_size" format="dimension"/>
+        <attr name="level" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="HeroView">
+        <attr name="list_hero_image" format="reference"/>
+        <attr name="list_hero_name" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ItemView">
+        <attr name="item_image" format="reference"/>
+        <attr name="item_name" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ItemCategoryView">
+        <attr name="category_name" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ItemDescriptionView">
+        <attr name="item_desc_name" format="string"/>
+        <attr name="item_desc_image" format="reference"/>
+    </declare-styleable>
+</resources>

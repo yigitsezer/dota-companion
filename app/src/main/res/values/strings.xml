@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Dota Companion</string>
+    <string name="test">Sweeps a target unit up into a cyclone, making them invulnerable for <b>2.5</b> seconds. Cyclone can only be cast on enemy units or yourself.\n\nEnemy units take <b>50</b> magical damage upon landing.\n\nRange: <b>575</b>\n\nDispel Type: <b>Basic Dispel</b></string>
+    <string name="nice_html">
+<![CDATA[
+<p>This is a html-formatted string with <b>bold</b> and <i>italic</i> text</p>
+<p>This is another paragraph of the same string.</p>
+]]>
+</string>
+</resources>

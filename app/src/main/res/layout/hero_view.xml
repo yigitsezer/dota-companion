@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/list_hero_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/hero_icon_drow_ranger"/>
+    <TextView
+        android:id="@+id/list_hero_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:paddingVertical="2dp"
+        android:textColor="@android:color/white"
+        tools:text="PLACEHOLDER"
+        android:textAlignment="center" />
+
+</LinearLayout>

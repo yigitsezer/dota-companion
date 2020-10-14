@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.encyclopedia.EncyclopediaFragment">
+
+    <com.example.dotacompanion.views.EncyclopediaItemView
+        android:id="@+id/heroes_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:card_image="@drawable/heroes_turbo"
+        app:card_text="Learn about hero stats, abilities and roles."
+        app:card_title="Heroes"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintBottom_toTopOf="@id/items_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.example.dotacompanion.views.EncyclopediaItemView
+        android:id="@+id/items_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:card_image="@drawable/secret_shop"
+        app:card_text="Learn about item stats, actives and build-ups"
+        app:card_title="Items"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heroes_card"
+        app:layout_constraintBottom_toTopOf="@id/updates_card"/>
+
+    <com.example.dotacompanion.views.EncyclopediaItemView
+        android:id="@+id/updates_card"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:card_image="@drawable/outlanders_update"
+        app:card_text="Check out the newest updates."
+        app:card_title="Updates"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/items_card"/>
+
+    <!--
+    <com.example.dotacompanion.views.EncyclopediaItemView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingEnd="4dp"
+        app:card_image="@drawable/radiant_creep"
+        app:card_text="Creeps, runes, tower stats, etc."
+        app:card_title="Miscellaneous"
+        app:layout_constraintTop_toTopOf="@id/horizontalGuideLine"
+        app:layout_constraintStart_toStartOf="@id/hero_vertical_guideline_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+        -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

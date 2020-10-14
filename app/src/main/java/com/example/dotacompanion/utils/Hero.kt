@@ -1,0 +1,3 @@
+package com.example.dotacompanion.utils
+
+class Hero(var id: Int, var localized_name: String, var primary_attr: String, var attack_type: String, var roles: Array<String>, var img: String, var base_health: Int, var base_health_regen: Double, var base_mana: Int, var base_mana_regen: Double, var base_armor: Double, var base_attack_min: Int, var base_attack_max: Int, var base_str: Int, var base_agi: Int, var base_int: Int, var str_gain: Double, var agi_gain: Double, var int_gain: Double, var attack_range: Int, var projectile_speed: Int, var attack_rate: Double, var move_speed: Int, var turn_rate: Double)

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/hero_progress_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="1dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/bar_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/role_level_box_empty"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bar_2"/>
+    <View
+        android:id="@+id/bar_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/role_level_box_empty"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintStart_toEndOf="@id/bar_1"
+        app:layout_constraintEnd_toStartOf="@id/bar_3"
+        app:layout_constraintBottom_toBottomOf="@id/bar_1"
+        app:layout_constraintTop_toTopOf="@id/bar_1"/>
+    <View
+        android:id="@+id/bar_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/role_level_box_empty"
+        app:layout_constraintTop_toTopOf="@id/bar_1"
+        app:layout_constraintBottom_toBottomOf="@id/bar_1"
+        app:layout_constraintStart_toEndOf="@id/bar_2"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,286 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "c4753cbb20fd24809713a44b57ce231a",
+    "entities": [
+      {
+        "tableName": "heroes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `full_name` TEXT, `media_name` TEXT, `localized_name` TEXT, `real_name` TEXT, `aliases` TEXT, `roles` TEXT, `role_levels` TEXT, `hype` TEXT, `bio` TEXT, `image` TEXT, `icon` TEXT, `portrait` TEXT, `talents` TEXT, `color` TEXT, `legs` INTEGER, `team` TEXT, `base_health_regen` REAL, `base_mana_regen` REAL, `base_movement` INTEGER, `base_attack_speed` INTEGER, `turn_rate` REAL, `base_armor` INTEGER, `attack_range` INTEGER, `attack_projectile_speed` INTEGER, `attack_damage_min` INTEGER, `attack_damage_max` INTEGER, `attack_rate` REAL, `attack_point` REAL, `attr_primary` TEXT, `attr_strength_base` INTEGER, `attr_strength_gain` REAL, `attr_intelligence_base` INTEGER, `attr_intelligence_gain` REAL, `attr_agility_base` INTEGER, `attr_agility_gain` REAL, `vision_day` INTEGER, `vision_night` INTEGER, `magic_resistance` INTEGER, `is_melee` INTEGER, `material` TEXT, `json_data` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fullName",
+            "columnName": "full_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "mediaName",
+            "columnName": "media_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "localizedName",
+            "columnName": "localized_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "realName",
+            "columnName": "real_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "aliases",
+            "columnName": "aliases",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "roles",
+            "columnName": "roles",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "roleLevels",
+            "columnName": "role_levels",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hype",
+            "columnName": "hype",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bio",
+            "columnName": "bio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "portrait",
+            "columnName": "portrait",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "talents",
+            "columnName": "talents",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "color",
+            "columnName": "color",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "legs",
+            "columnName": "legs",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "team",
+            "columnName": "team",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "baseHealthRegen",
+            "columnName": "base_health_regen",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "baseManaRegen",
+            "columnName": "base_mana_regen",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "baseMovement",
+            "columnName": "base_movement",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "baseAttackSpeed",
+            "columnName": "base_attack_speed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "turnRate",
+            "columnName": "turn_rate",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "baseArmor",
+            "columnName": "base_armor",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackRange",
+            "columnName": "attack_range",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackProjectileSpeed",
+            "columnName": "attack_projectile_speed",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackDamageMin",
+            "columnName": "attack_damage_min",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackDamageMax",
+            "columnName": "attack_damage_max",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackRate",
+            "columnName": "attack_rate",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attackPoint",
+            "columnName": "attack_point",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrPrimary",
+            "columnName": "attr_primary",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrStrengthBase",
+            "columnName": "attr_strength_base",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrStrengthGain",
+            "columnName": "attr_strength_gain",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrIntelligenceBase",
+            "columnName": "attr_intelligence_base",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrIntelligenceGain",
+            "columnName": "attr_intelligence_gain",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrAgilityBase",
+            "columnName": "attr_agility_base",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attrAgilityGain",
+            "columnName": "attr_agility_gain",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "visionDay",
+            "columnName": "vision_day",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "visionNight",
+            "columnName": "vision_night",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "magicResistance",
+            "columnName": "magic_resistance",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isMelee",
+            "columnName": "is_melee",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "material",
+            "columnName": "material",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "jsonData",
+            "columnName": "json_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c4753cbb20fd24809713a44b57ce231a')"
+    ]
+  }
+}
