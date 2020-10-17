@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.encyclopediaFragment -> {
-                    navController?.navigate(R.id.encyclopediaFragment)
+                    //navController?.navigate(R.id.encyclopediaFragment)
+                    navController?.popBackStack(R.id.encyclopediaFragment, false)
                     true
                 }
                 R.id.profileNavigation -> {

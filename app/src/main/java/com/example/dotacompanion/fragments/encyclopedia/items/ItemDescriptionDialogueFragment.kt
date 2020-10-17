@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,8 +35,8 @@ class ItemDescriptionDialogueFragment : DialogFragment() {
     ): View? {
         binding = FragmentItemDescriptionDialogueBinding.inflate(inflater, container, false)
         
-        var db = (activity?.application as DotaApplication).getDb()
-        var item = db?.itemDao()?.getItem(this.itemId)
+        val db = (activity?.application as DotaApplication).getDb()
+        val item = db?.itemDao()?.getItem(this.itemId)
         binding!!.itemDescriptionDialogView.descriptionItemName.text = item?.localized_name
         binding!!.itemDescriptionDialogView.descriptionItemImage.setImageResource(resources.getIdentifier(item?.icon?.length?.minus(4)?.let { item.icon?.substring(23, it) }, "drawable", context?.packageName))
         binding!!.itemDescriptionDialogView.itemCostText.text = item?.cost.toString()
@@ -46,7 +47,7 @@ class ItemDescriptionDialogueFragment : DialogFragment() {
             binding!!.itemDescriptionDialogView.itemNeutralTierText.visibility = View.VISIBLE
             binding!!.itemDescriptionDialogView.itemNeutralTierText.text = "Tier " + item?.neutral_tier + " Neutral Item"
         }
-        var json = JSONArray(item?.ability_special)
+        val json = JSONArray(item?.ability_special)
         val stringBuilder = StringBuilder()
         for (i in 0 until json.length()) {
             var curObj = json.get(i) as JSONObject
@@ -63,7 +64,7 @@ class ItemDescriptionDialogueFragment : DialogFragment() {
         if (stringBuilder.toString().isEmpty()) {
             binding!!.itemDescriptionDialogView.itemStatGain.visibility = View.GONE
         } else {
-            binding!!.itemDescriptionDialogView.itemStatGain.text = stringBuilder.toString().trim()
+            binding!!.itemDescriptionDialogView.itemStatGain.text = HtmlCompat.fromHtml(stringBuilder.toString().trim().replace(Regex("\\n"), "<br>"), HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
         binding!!.itemDescriptionDialogView.descriptionRecyclerView.adapter = ItemDescriptionAdapter(context, item)
         return binding!!.root

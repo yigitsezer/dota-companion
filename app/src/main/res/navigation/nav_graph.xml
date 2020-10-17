@@ -66,7 +66,11 @@
         tools:layout="@layout/fragment_heroes" >
         <action
             android:id="@+id/action_heroesFragment_to_heroInfoFragment"
-            app:destination="@id/heroInfoFragment" />
+            app:destination="@id/heroInfoFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
     <fragment
         android:id="@+id/heroInfoFragment"

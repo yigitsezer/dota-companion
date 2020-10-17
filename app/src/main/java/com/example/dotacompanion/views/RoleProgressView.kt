@@ -21,20 +21,17 @@ import java.util.*
 class RoleProgressView(context: Context, attrs: AttributeSet?) : LinearLayout(context, attrs) {
     private var level = 0
     var roleName: String? = null
-    private var bars: MutableList<View>? = null
+    private var bars: MutableList<View>? = ArrayList()
     private fun updateLevelDisplay() {
-        bars?.let {
+        bars?.add(findViewById(R.id.bar_1))
+        bars?.add(findViewById(R.id.bar_2))
+        bars?.add(findViewById(R.id.bar_3))
 
-        }
-        if (bars == null) {
-            bars = ArrayList()
-            bars?.add(findViewById(R.id.bar_1))
-            bars?.add(findViewById(R.id.bar_2))
-            bars?.add(findViewById(R.id.bar_3))
-        }
+
         for (i in 0 until level % 4) {
             bars!![i].setBackgroundResource(R.drawable.role_level_box_filled)
         }
+
     }
 
     fun getLevel(): Int {

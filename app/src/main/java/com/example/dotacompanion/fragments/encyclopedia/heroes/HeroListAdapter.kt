@@ -35,7 +35,7 @@ class HeroListAdapter(private val context: Context?, private val listAttribute: 
             val bundle = Bundle()
             bundle.putInt("hero_id", heroIds[position])
             //navController?.navigate(R.id.action_heroesFragment_to_heroInfoFragment, bundle)
-            navController.navigate(R.id.heroInfoFragment, bundle)
+            navController.navigate(R.id.action_heroesFragment_to_heroInfoFragment, bundle)
         }
     }
 
