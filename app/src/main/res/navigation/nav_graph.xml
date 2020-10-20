@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.dotacompanion.fragments.MainFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/encyclopediaFragment"
-        android:name="com.example.dotacompanion.fragments.encyclopedia.EncyclopediaFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.EncyclopediaFragment"
         android:label="fragment_encyclopedia"
         tools:layout="@layout/fragment_encyclopedia" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.dotacompanion.fragments.about.AboutFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.about.AboutFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_about" />
     <action
@@ -44,12 +44,12 @@
         app:startDestination="@id/primaryProfileFragment">
         <fragment
             android:id="@+id/fetchedProfileFragment"
-            android:name="com.example.dotacompanion.fragments.profile.FetchedProfileFragment"
+            android:name="com.yigitsezer.dotacompanion.fragments.profile.FetchedProfileFragment"
             android:label="fragment_fetched_profile"
             tools:layout="@layout/fragment_fetched_profile"/>
         <fragment
             android:id="@+id/primaryProfileFragment"
-            android:name="com.example.dotacompanion.fragments.profile.PrimaryProfileFragment"
+            android:name="com.yigitsezer.dotacompanion.fragments.profile.PrimaryProfileFragment"
             android:label="fragment_primary_profile"
             tools:layout="@layout/fragment_primary_profile">
             <action
@@ -61,7 +61,7 @@
     </navigation>
     <fragment
         android:id="@+id/heroesFragment"
-        android:name="com.example.dotacompanion.fragments.encyclopedia.heroes.HeroesFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.heroes.HeroesFragment"
         android:label="fragment_heroes"
         tools:layout="@layout/fragment_heroes" >
         <action
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/heroInfoFragment"
-        android:name="com.example.dotacompanion.fragments.encyclopedia.heroes.hero_info.HeroInfoFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.heroes.hero_info.HeroInfoFragment"
         android:label="fragment_hero_info"
         tools:layout="@layout/fragment_hero_info" >
 
@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemsFragment"
-        android:name="com.example.dotacompanion.fragments.encyclopedia.items.ItemsFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.items.ItemsFragment"
         android:label="fragment_items"
         tools:layout="@layout/fragment_items" >
         <action
@@ -96,7 +96,7 @@
     <dialog
         android:id="@+id/item_dialog_fragment"
         android:label="fragment_item_dialog"
-        android:name="com.example.dotacompanion.fragments.encyclopedia.items.ItemDescriptionDialogueFragment"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.items.ItemDescriptionDialogueFragment"
         tools:layout="@layout/fragment_item_description_dialogue" >
     </dialog>
 </navigation>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.encyclopedia.EncyclopediaFragment">
 
-    <com.example.dotacompanion.views.EncyclopediaItemView
+    <com.yigitsezer.dotacompanion.views.EncyclopediaItemView
         android:id="@+id/heroes_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.example.dotacompanion.views.EncyclopediaItemView
+    <com.yigitsezer.dotacompanion.views.EncyclopediaItemView
         android:id="@+id/items_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@id/heroes_card"
         app:layout_constraintBottom_toTopOf="@id/updates_card"/>
 
-    <com.example.dotacompanion.views.EncyclopediaItemView
+    <com.yigitsezer.dotacompanion.views.EncyclopediaItemView
         android:id="@+id/updates_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/items_card"/>
 
     <!--
-    <com.example.dotacompanion.views.EncyclopediaItemView
+    <com.yigitsezer.dotacompanion.views.EncyclopediaItemView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingEnd="4dp"
