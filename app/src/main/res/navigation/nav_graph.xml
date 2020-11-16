@@ -68,9 +68,9 @@
             android:id="@+id/action_heroesFragment_to_heroInfoFragment"
             app:destination="@id/heroInfoFragment"
             app:enterAnim="@anim/slide_in"
-            app:exitAnim="@anim/slide_out"
-            app:popEnterAnim="@anim/slide_in"
-            app:popExitAnim="@anim/slide_out" />
+            app:popExitAnim="@anim/slide_out"
+            app:exitAnim="@anim/wait_anim"
+            app:popEnterAnim="@anim/wait_anim" />
     </fragment>
     <fragment
         android:id="@+id/heroInfoFragment"
@@ -80,6 +80,9 @@
 
         <argument android:name="hero_id"
             android:defaultValue="1" />
+        <action
+            android:id="@+id/action_heroInfoFragment_to_ability_dialog_fragment"
+            app:destination="@id/ability_dialog_fragment" />
 
     </fragment>
     <fragment
@@ -98,5 +101,12 @@
         android:label="fragment_item_dialog"
         android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.items.ItemDescriptionDialogueFragment"
         tools:layout="@layout/fragment_item_description_dialogue" >
+    </dialog>
+
+    <dialog
+        android:id="@+id/ability_dialog_fragment"
+        android:label="fragment_ability_dialog"
+        android:name="com.yigitsezer.dotacompanion.fragments.encyclopedia.heroes.hero_info.AbilityDescriptionDialogueFragment"
+        tools:layout="@layout/fragment_ability_description_dialogue" >
     </dialog>
 </navigation>

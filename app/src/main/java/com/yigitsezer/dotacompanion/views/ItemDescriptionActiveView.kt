@@ -1,20 +1,22 @@
 package com.yigitsezer.dotacompanion.views
 
 import android.content.Context
+import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import com.yigitsezer.dotacompanion.R
 
 
-class ItemDescriptionActiveView : LinearLayout {
+class ItemDescriptionActiveView(context: Context?) : LinearLayout(context) {
     private var activeText: TextView
     private var descriptionText: TextView
     private var cooldownText: TextView
     private var manacostText: TextView
 
 
-    constructor(context: Context?) : super(context) {
+    init {
         inflate(context, R.layout.item_description_active, this)
         activeText = findViewById(R.id.item_desc_active_name)
         descriptionText = findViewById(R.id.item_desc_active_text)
@@ -37,5 +39,15 @@ class ItemDescriptionActiveView : LinearLayout {
 
     fun setManacostText(str: String) {
         manacostText.text = str
+    }
+
+    fun removeManacost() {
+        findViewById<ImageView>(R.id.item_desc_active_mana_icon).visibility = View.GONE
+        findViewById<TextView>(R.id.item_desc_active_mana_text).visibility = View.GONE
+    }
+
+    fun removeCooldown() {
+        findViewById<ImageView>(R.id.item_desc_active_cd_icon).visibility = View.GONE
+        findViewById<TextView>(R.id.item_desc_active_cd_text).visibility = View.GONE
     }
 }

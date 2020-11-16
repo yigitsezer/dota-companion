@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:theme="@style/ItemDescriptionTheme.Shadow"
     android:layout_marginVertical="8dp">
 
@@ -21,73 +21,87 @@
         <TextView
             android:id="@+id/item_desc_active_name"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="Active: Cyclone"
+            android:layout_height="wrap_content"
+            tools:text="Active: Cyclone"
             android:textStyle="bold"
             android:gravity="center_vertical"
             app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
-            app:autoSizeMinTextSize="14sp"
+            app:autoSizeMinTextSize="8sp"
             app:autoSizeStepGranularity="1sp"
             android:textColor="#AAAAEB"
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/item_desc_active_mana_icon"
-            app:layout_constraintHorizontal_bias="0"/>
+            app:layout_constraintEnd_toStartOf="@id/item_desc_active_mana_icon" />
 
         <ImageView
             android:id="@+id/item_desc_active_mana_icon"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/aaamana_symbol"
-            android:layout_marginEnd="6dp"
-            app:layout_constraintEnd_toStartOf="@id/item_desc_active_mana_text"
-            app:layout_constraintTop_toTopOf="@id/item_desc_active_mana_text"
-            app:layout_constraintBottom_toBottomOf="@id/item_desc_active_mana_text"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.65"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/item_desc_active_mana_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:fontFamily="@font/memo_std_regular"
-            android:text="175"
+            android:layout_marginStart="6dp"
+            android:gravity="center_vertical"
+            tools:text="120 / 140 / 160 / 180 / 200"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="1sp"
             android:textStyle="bold"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="8dp"
             android:textColor="#DFE0EC"
+            app:layout_constraintStart_toEndOf="@id/item_desc_active_mana_icon"
             app:layout_constraintEnd_toStartOf="@id/item_desc_active_cd_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
-
+        <!--FIX THIS BY 5.11.20-->
         <ImageView
             android:id="@+id/item_desc_active_cd_icon"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             android:src="@drawable/aaacooldown_symbol"
             android:layout_marginEnd="6dp"
-            app:layout_constraintEnd_toStartOf="@id/item_desc_active_cd_text"
             app:layout_constraintTop_toTopOf="@id/item_desc_active_cd_text"
-            app:layout_constraintBottom_toBottomOf="@id/item_desc_active_cd_text"/>
+            app:layout_constraintBottom_toBottomOf="@id/item_desc_active_cd_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.885"
+            />
 
         <TextView
             android:id="@+id/item_desc_active_cd_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:fontFamily="@font/memo_std_regular"
-            android:text="23"
+            android:gravity="center_vertical"
+            tools:text="35/30/25/20/15"
             android:textStyle="bold"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeStepGranularity="1sp"
             android:layout_marginStart="4dp"
             android:textColor="#DFE0EC"
-            app:layout_constraintHorizontal_bias="0.95"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_desc_active_cd_icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

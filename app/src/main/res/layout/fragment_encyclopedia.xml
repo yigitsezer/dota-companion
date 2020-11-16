@@ -13,6 +13,7 @@
         app:card_image="@drawable/heroes_turbo"
         app:card_text="Learn about hero stats, abilities and roles."
         app:card_title="Heroes"
+        android:layout_margin="10dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="10dp"
         app:layout_constraintBottom_toTopOf="@id/items_card"
@@ -27,6 +28,7 @@
         app:card_image="@drawable/secret_shop"
         app:card_text="Learn about item stats, actives and build-ups"
         app:card_title="Items"
+        android:layout_margin="10dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,12 +43,22 @@
         app:card_image="@drawable/outlanders_update"
         app:card_text="Check out the newest updates."
         app:card_title="Updates"
+        android:layout_margin="10dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginVertical="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/items_card"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/web_icon"
+        app:layout_constraintEnd_toEndOf="@id/updates_card"
+        app:layout_constraintBottom_toBottomOf="@id/updates_card"
+        android:layout_margin="16dp"/>
+
 
     <!--
     <com.yigitsezer.dotacompanion.views.EncyclopediaItemView

@@ -8,15 +8,28 @@
     android:theme="@style/HeroFragmentTheme"
     android:background="@android:color/black">
 
+
+        <TextView
+            android:id="@+id/abilities_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:text="ABILITIES"
+            android:textSize="22sp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="@id/hype_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hero_abilities_recycler_view"
             android:layout_width="match_parent"
             android:layout_gravity="center_horizontal"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/abilities_text"
             app:layout_constraintBottom_toTopOf="@id/hype_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="16dp"
             />
 
         <TextView
@@ -362,6 +375,7 @@
             app:layout_constraintTop_toBottomOf="@id/turn_rate_text" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/level_seek_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -380,6 +394,7 @@
             app:layout_constraintBottom_toTopOf="@id/seek_bar"/>
 
         <SeekBar
+            android:visibility="gone"
             android:id="@+id/seek_bar"
             android:layout_width="0dp"
             android:layout_height="0dp"

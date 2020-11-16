@@ -15,7 +15,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_percent="0.29" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hero_horizontal_guideline_1"
@@ -99,17 +99,21 @@
 
     <TextView
         android:id="@+id/info_hero_roles"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="4dp"
-        tools:text="RANGED   CARRY   JUNGLER"
-        android:lines="2"
+        tools:text="RANGED\nCARRY\nUNGLER"
+        android:lineSpacingMultiplier="1.3"
+        app:fontFamily="@font/penumbra_regular"
+        android:textFontWeight="700"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/info_hero_image"
         app:layout_constraintEnd_toEndOf="@id/stats_vertical_guideline_2"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintTop_toBottomOf="@id/info_hero_name" />
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/info_hero_name"
+        app:layout_constraintBottom_toBottomOf="@id/info_hero_image"/>
 
    <ScrollView
        android:id="@+id/hero_info_description_scroll"
@@ -118,7 +122,7 @@
        app:layout_constraintTop_toTopOf="@id/hero_horizontal_guideline_2"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent">
+       app:layout_constraintBottom_toTopOf="@id/adView">
 
        <include layout="@layout/hero_info_description_view"
            android:id="@+id/hero_description"
@@ -127,4 +131,16 @@
 
    </ScrollView>
 
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

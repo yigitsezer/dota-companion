@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fragments.encyclopedia.heroes.HeroesFragment"
     android:orientation="vertical"
-    android:theme="@style/TabBarTheme" >
+    android:theme="@style/TabBarTheme">
 
     <com.google.android.material.tabs.TabLayout
         app:tabSelectedTextColor="#92BAE3"

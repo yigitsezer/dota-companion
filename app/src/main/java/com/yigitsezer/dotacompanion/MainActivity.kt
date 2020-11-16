@@ -1,7 +1,7 @@
 package com.yigitsezer.dotacompanion
 
+import android.content.res.Configuration
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -11,6 +11,7 @@ import androidx.navigation.Navigation
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.google.android.gms.ads.MobileAds
 import com.yigitsezer.dotacompanion.databinding.ActivityMainBinding
 import com.yigitsezer.dotacompanion.utils.database.DotaDatabase
 
@@ -93,10 +94,18 @@ class MainActivity : AppCompatActivity() {
             application?.setDb(db)
         }
 
-        val handler = Handler()
-        val delay = 1000 //milliseconds
+        //val handler = Handler()
+        //val delay = 1000 //milliseconds
+        MobileAds.initialize(this) {}
+
     }
 
+    override fun onBackPressed() {
+        if (this.isTaskRoot && supportFragmentManager.backStackEntryCount > 1)
+            finishAfterTransition()
+        else
+            super.onBackPressed()
+    }
 
     //TODO: This is bullshit, I made this because at this point the only destination back button
     // can take you is encyclopedia fragment, when profile and about (or whatever it is) fragments are done

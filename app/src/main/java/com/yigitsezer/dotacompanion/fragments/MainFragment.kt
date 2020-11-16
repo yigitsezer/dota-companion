@@ -1,14 +1,14 @@
 package com.yigitsezer.dotacompanion.fragments
 
 import android.graphics.Bitmap
+import android.net.http.SslError
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.fragment.app.Fragment
+import com.google.android.gms.ads.MobileAds
 import com.yigitsezer.dotacompanion.databinding.FragmentMainBinding
 
 
@@ -46,10 +46,10 @@ class MainFragment : Fragment() {
 
         //TODO: Sometime in the future fix this
         binding!!.webview.settings.javaScriptEnabled = true
-        binding!!.webview.getSettings().setSupportZoom(true);
-        binding!!.webview.getSettings().setUseWideViewPort(true);
-        binding!!.webview.getSettings().setLoadWithOverviewMode(true);
-        binding!!.webview.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+        binding!!.webview.getSettings().setSupportZoom(true)
+        binding!!.webview.getSettings().setUseWideViewPort(true)
+        binding!!.webview.getSettings().setLoadWithOverviewMode(true)
+        binding!!.webview.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING)
         //binding!!.webview.setWebChromeClient(WebChromeClient())
         //binding!!.webview.getSettings().setUserAgentString("Mozilla/5.0 (Linux; U; Android 4.1.1; en-gb; Build/KLP) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30");
         binding!!.webview.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
@@ -65,14 +65,20 @@ class MainFragment : Fragment() {
                         "document.getElementsByClassName(\"MainContents\")[0].style.backgroundImage = \"none\";", null)
             }
 
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                if (!request?.url.toString().contains(Regex("https://"))) {
+                    view?.loadUrl(request?.url.toString().replace(Regex("http://"), "https://"))
+                    return true
+                } else
+                    return false
+            }
+
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-                binding?.progress1?.setVisibility(View.VISIBLE);
+                binding?.progress1?.setVisibility(View.VISIBLE)
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
-                binding?.progress1?.setVisibility(View.GONE);
+                binding?.progress1?.setVisibility(View.GONE)
             }
 
             //TODO: Force https or make a button somewhere so user can search through updates

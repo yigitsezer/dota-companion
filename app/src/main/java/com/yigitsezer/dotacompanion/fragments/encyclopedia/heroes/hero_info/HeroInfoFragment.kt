@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
 import com.yigitsezer.dotacompanion.DotaApplication
 import com.yigitsezer.dotacompanion.R
+import com.yigitsezer.dotacompanion.data.dotabase.Ability
 import com.yigitsezer.dotacompanion.data.dotabase.Hero
 import com.yigitsezer.dotacompanion.databinding.FragmentHeroInfoBinding
 import com.yigitsezer.dotacompanion.databinding.HeroInfoDescriptionViewBinding
@@ -24,8 +28,8 @@ import java.util.*
 class HeroInfoFragment : Fragment() {
     private var heroId = 0
     private var hero: Hero? = null
-    private var application: DotaApplication? = null
     private var binding: FragmentHeroInfoBinding? = null
+    private var abilities: List<Ability>? = null
 
     private lateinit var abilityDao: AbilityDao
 
@@ -34,9 +38,10 @@ class HeroInfoFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         heroId = requireArguments().getInt("hero_id")
-        application = (context as Activity?)!!.application as DotaApplication
-        hero = application?.getDb()?.heroDao()?.getHeroById(heroId)
-        abilityDao = application?.getDb()?.abilityDao()!!
+        val application = (context as Activity?)!!.application as DotaApplication
+        hero = application.getDb()?.heroDao()?.getHeroById(heroId)
+        abilities = application.getDb()?.abilityDao()!!.getHeroAbilities(heroId)
+        abilityDao = application.getDb()?.abilityDao()!!
         Log.d("HELLOW", hero?.localizedName.toString())
     }
 
@@ -48,12 +53,6 @@ class HeroInfoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val a = abilityDao.test(heroId)
-        for (i in a?.indices!!) {
-            if (a[i].abilitySlot != null && a[i].aghanimGrants == 0) {
-                Log.d("HELLOW", a[i].localizedName.toString())
-            }
-        }
         //add these to an abilitiesAdapter
         //recyclerView.setHasFixedSize(true)
         //recyclerView.layoutManager = GridLayoutManager(this.context, 6, RecyclerView.VERTICAL, false)
@@ -61,7 +60,12 @@ class HeroInfoFragment : Fragment() {
         binding?.heroDescription?.heroAbilitiesRecyclerView?.let {
             it.setHasFixedSize(true)
             it.layoutManager = LinearLayoutManager(this.context, RecyclerView.HORIZONTAL, false)
-            it.adapter = HeroAbilitiesAdapter(abilityDao.test(heroId)!!)
+            it.adapter = HeroAbilitiesAdapter(abilities!!) {
+                val bundle = Bundle()
+                bundle.putInt("ability_id", it.id)
+                findNavController().navigate(R.id.ability_dialog_fragment, bundle)
+                Log.d("HELLOW", "this is called")
+            }
         }
 
         //TODO: together with everyone, have the animated portraits in a seperate attribute in json, revisit here when doing that
@@ -80,10 +84,13 @@ class HeroInfoFragment : Fragment() {
         val roles = hero?.roles?.split("\\|".toRegex())?.toTypedArray()
         val roleLevels = hero?.roleLevels?.split("\\|".toRegex())?.toTypedArray()
         binding!!.infoHeroName.text = hero?.localizedName
-        val rolesTextStr = (if (hero?.melee == 1) "MELEE  " else "RANGED  ") + Arrays.toString(roles).replace("[", "").replace("]", "").replace(", ", "  ")
-        binding!!.infoHeroRoles.text = rolesTextStr
+        //val rolesTextStr = (if (hero?.melee == 1) "MELEE  " else "RANGED  ") + Arrays.toString(roles).replace("[", "").replace("]", "").replace(", ", "  ")
+        val rolesTextStr = "<big>" + (if (hero?.melee == 1) "MELEE" else "RANGED") + "</big><br>" + Arrays.toString(roles).replace("[", "").replace("]", "").replace(", ", "<br>")
+        binding!!.infoHeroRoles.text = HtmlCompat.fromHtml(rolesTextStr, HtmlCompat.FROM_HTML_MODE_LEGACY)
         binding?.heroDescription?.hypeText?.text = hero?.hype
         setStatTexts(1)
+
+        //Removed the seekbar for the time being
         binding?.heroDescription?.seekBar?.max = 30
         binding?.heroDescription?.seekBar?.progress = 1
         binding?.heroDescription?.seekBar?.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
@@ -115,11 +122,15 @@ class HeroInfoFragment : Fragment() {
 
             }
         }
+
+        val adRequest = AdRequest.Builder().build()
+        binding!!.adView.loadAd(adRequest)
         //binding!!.heroInfoDescriptionScroll.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding!!.adView.destroy()
         binding = null
     }
 
@@ -154,13 +165,13 @@ class HeroInfoFragment : Fragment() {
         val intText = hero?.attrIntelligenceBase.toString() + " + " + df.format(hero?.attrIntelligenceGain)
         val attackDistribution = (hero?.attackDamageMin?.plus(primaryAttrBase)).toString() + " - " + (hero?.attackDamageMax?.plus(primaryAttrBase))
         //TODO: this is actually "attack time", which is calculated differently
-        val attackRate = df.format(hero?.attackRate)
-        val attackRange = hero?.attackRange.toString()
-        val armorText = df.format(hero?.attrAgilityBase?.times(0.17)?.let { hero?.baseArmor?.plus(it) })
-        val magicResistance = hero?.magicResistance.toString() + "%"
-        val movementSpeed = hero?.baseMovement.toString()
-        val turnRate = df.format(hero?.turnRate)
-        val visionText = hero?.visionDay.toString() + " / " + hero?.visionNight
+        val attackRate = df.format(hero?.attackRate) //IDK
+        val attackRange = hero?.attackRange.toString() //30 BY TALENT
+        val armorText = df.format(hero?.attrAgilityBase?.times(0.17)?.let { hero?.baseArmor?.plus(it) }) //TALENT AND LEVEL
+        val magicResistance = hero?.magicResistance.toString() + "%" //30 BY TALENT
+        val movementSpeed = hero?.baseMovement.toString() //30 BY TALENT
+        val turnRate = df.format(hero?.turnRate) //NOT AFFECTED
+        val visionText = hero?.visionDay.toString() + " / " + hero?.visionNight //NOT AFFECTED, MAYBE BY TALENT 30
         val health = df1.format(200 + (hero?.attrStrengthBase?.times(20.toLong()) ?: 0))
         val healthRegen = "+" + df.format((hero?.baseHealthRegen ?: 0).toFloat().plus((hero?.attrStrengthBase ?: 0).times(0.1)))
         val mana = df1.format(75 + (hero?.attrIntelligenceBase?.times(12.toLong()) ?: 0))
