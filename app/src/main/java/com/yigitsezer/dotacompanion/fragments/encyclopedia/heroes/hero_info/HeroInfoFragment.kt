@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import com.yigitsezer.dotacompanion.DotaApplication
 import com.yigitsezer.dotacompanion.R
 import com.yigitsezer.dotacompanion.data.dotabase.Ability
@@ -30,6 +31,7 @@ class HeroInfoFragment : Fragment() {
     private var hero: Hero? = null
     private var binding: FragmentHeroInfoBinding? = null
     private var abilities: List<Ability>? = null
+    private var adView: AdView? = null
 
     private lateinit var abilityDao: AbilityDao
 
@@ -42,7 +44,6 @@ class HeroInfoFragment : Fragment() {
         hero = application.getDb()?.heroDao()?.getHeroById(heroId)
         abilities = application.getDb()?.abilityDao()!!.getHeroAbilities(heroId)
         abilityDao = application.getDb()?.abilityDao()!!
-        Log.d("HELLOW", hero?.localizedName.toString())
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -64,7 +65,6 @@ class HeroInfoFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putInt("ability_id", it.id)
                 findNavController().navigate(R.id.ability_dialog_fragment, bundle)
-                Log.d("HELLOW", "this is called")
             }
         }
 
@@ -78,7 +78,6 @@ class HeroInfoFragment : Fragment() {
         }
 
         val heroImageName = hero?.fullName + "_png"
-        Log.d("HELLOW", "" + resources.getIdentifier(heroImageName, "drawable", context?.packageName))
         binding!!.infoHeroImage.setImageResource(resources.getIdentifier(heroImageName, "drawable", context?.packageName))
 
         val roles = hero?.roles?.split("\\|".toRegex())?.toTypedArray()
@@ -124,17 +123,19 @@ class HeroInfoFragment : Fragment() {
         }
 
         val adRequest = AdRequest.Builder().build()
-        binding!!.adView.loadAd(adRequest)
+        adView = view.findViewById(R.id.adView)
+        adView!!.loadAd(adRequest)
         //binding!!.heroInfoDescriptionScroll.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding!!.adView.destroy()
+        adView!!.destroy()
         binding = null
     }
 
     override fun onDestroy() {
+        adView = null
         super.onDestroy()
     }
 

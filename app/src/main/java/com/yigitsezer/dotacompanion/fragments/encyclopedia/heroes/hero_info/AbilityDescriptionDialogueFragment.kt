@@ -37,7 +37,7 @@ class AbilityDescriptionDialogueFragment : DialogFragment() {
         val application = (context as Activity?)!!.application as DotaApplication
         val abilityId = requireArguments().getInt("ability_id")
         ability = application.getDb()?.abilityDao()!!.getAbility(abilityId)
-        Log.d("HELLOW", "FOUND ABILITY: " + ability?.localizedName + " FROM ID: " + abilityId)
+
     }
 
     override fun onCreateView(

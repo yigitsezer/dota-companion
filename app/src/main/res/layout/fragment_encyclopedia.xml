@@ -40,7 +40,7 @@
         android:id="@+id/updates_card"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:card_image="@drawable/outlanders_update"
+        app:card_image="@drawable/update_image"
         app:card_text="Check out the newest updates."
         app:card_title="Updates"
         android:layout_margin="10dp"

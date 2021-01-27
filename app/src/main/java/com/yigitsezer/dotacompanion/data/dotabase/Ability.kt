@@ -2,9 +2,13 @@ package com.yigitsezer.dotacompanion.data.dotabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "abilities")
+@Entity(tableName = "abilities", foreignKeys = arrayOf(ForeignKey(entity = Hero::class,
+        parentColumns = arrayOf("id"),
+        childColumns = arrayOf("hero_id"),
+        onDelete = ForeignKey.NO_ACTION)))
 class Ability {
     @ColumnInfo(name = "id")
     @PrimaryKey
@@ -58,14 +62,14 @@ class Ability {
     @ColumnInfo(name = "ability_special")
     var abilitySpecial: String? = null
 
-    @ColumnInfo(name = "linked_abilities")
-    var linkedAbilities: String? = null
+    @ColumnInfo(name = "shard_grants")
+    var shardGrants: Int? = null
 
-    @ColumnInfo(name = "talent_slot")
-    var talentSlot: Int? = null
+    @ColumnInfo(name = "shard_description")
+    var shardDescription: String? = null
 
-    @ColumnInfo(name = "ability_slot")
-    var abilitySlot: Int? = null
+    @ColumnInfo(name = "slot")
+    var slot: Int? = null
 
     @ColumnInfo(name = "icon")
     var icon: String? = null
@@ -82,11 +86,11 @@ class Ability {
     @ColumnInfo(name = "note")
     var note: String? = null
 
-    @ColumnInfo(name = "aghanim")
+    @ColumnInfo(name = "scepter_description")
     var aghanim: String? = null
 
-    @ColumnInfo(name = "aghanim_grants")
-    var aghanimGrants: Int? = null
+    @ColumnInfo(name = "scepter_grants")
+    var scepterGrants: Int? = null
 
     @ColumnInfo(name = "json_data")
     var jsonData: String? = null

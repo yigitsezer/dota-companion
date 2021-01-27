@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3bceca081079085854ad133ac55c6110",
+    "identityHash": "6fbae28c8a536cec1e6741d365097315",
     "entities": [
       {
         "tableName": "heroes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `full_name` TEXT, `media_name` TEXT, `localized_name` TEXT, `real_name` TEXT, `aliases` TEXT, `roles` TEXT, `role_levels` TEXT, `hype` TEXT, `bio` TEXT, `image` TEXT, `icon` TEXT, `portrait` TEXT, `talents` TEXT, `color` TEXT, `legs` INTEGER, `team` TEXT, `base_health_regen` REAL, `base_mana_regen` REAL, `base_movement` INTEGER, `base_attack_speed` INTEGER, `turn_rate` REAL, `base_armor` INTEGER, `attack_range` INTEGER, `attack_projectile_speed` INTEGER, `attack_damage_min` INTEGER, `attack_damage_max` INTEGER, `attack_rate` REAL, `attack_point` REAL, `attr_primary` TEXT, `attr_strength_base` INTEGER, `attr_strength_gain` REAL, `attr_intelligence_base` INTEGER, `attr_intelligence_gain` REAL, `attr_agility_base` INTEGER, `attr_agility_gain` REAL, `vision_day` INTEGER, `vision_night` INTEGER, `magic_resistance` INTEGER, `is_melee` INTEGER, `material` TEXT, `json_data` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `full_name` TEXT, `media_name` TEXT, `localized_name` TEXT, `real_name` TEXT, `aliases` TEXT, `roles` TEXT, `role_levels` TEXT, `hype` TEXT, `bio` TEXT, `image` TEXT, `icon` TEXT, `portrait` TEXT, `color` TEXT, `legs` INTEGER, `team` TEXT, `base_health_regen` REAL, `base_mana_regen` REAL, `base_movement` INTEGER, `base_attack_speed` INTEGER, `turn_rate` REAL, `base_armor` INTEGER, `attack_range` INTEGER, `attack_projectile_speed` INTEGER, `attack_damage_min` INTEGER, `attack_damage_max` INTEGER, `attack_rate` REAL, `attack_point` REAL, `attr_primary` TEXT, `attr_strength_base` INTEGER, `attr_strength_gain` REAL, `attr_intelligence_base` INTEGER, `attr_intelligence_gain` REAL, `attr_agility_base` INTEGER, `attr_agility_gain` REAL, `vision_day` INTEGER, `vision_night` INTEGER, `magic_resistance` INTEGER, `is_melee` INTEGER, `material` TEXT, `json_data` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -89,12 +89,6 @@
           {
             "fieldPath": "portrait",
             "columnName": "portrait",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "talents",
-            "columnName": "talents",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -273,12 +267,21 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_heroes_id",
+            "unique": false,
+            "columnNames": [
+              "id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_heroes_id` ON `${TABLE_NAME}` (`id`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
         "tableName": "abilities",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `hero_id` INTEGER, `behavior` TEXT, `damage_type` TEXT, `spell_immunity` TEXT, `target_team` TEXT, `dispellable` TEXT, `cast_range` TEXT, `cast_point` TEXT, `channel_time` TEXT, `cooldown` TEXT, `duration` TEXT, `damage` TEXT, `mana_cost` TEXT, `charges` TEXT, `ability_special` TEXT, `linked_abilities` TEXT, `talent_slot` INTEGER, `ability_slot` INTEGER, `icon` TEXT, `localized_name` TEXT, `description` TEXT, `lore` TEXT, `note` TEXT, `aghanim` TEXT, `aghanim_grants` INTEGER, `json_data` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `hero_id` INTEGER, `behavior` TEXT, `damage_type` TEXT, `spell_immunity` TEXT, `target_team` TEXT, `dispellable` TEXT, `cast_range` TEXT, `cast_point` TEXT, `channel_time` TEXT, `cooldown` TEXT, `duration` TEXT, `damage` TEXT, `mana_cost` TEXT, `charges` TEXT, `ability_special` TEXT, `shard_grants` INTEGER, `shard_description` TEXT, `slot` INTEGER, `icon` TEXT, `localized_name` TEXT, `description` TEXT, `lore` TEXT, `note` TEXT, `scepter_description` TEXT, `scepter_grants` INTEGER, `json_data` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`hero_id`) REFERENCES `heroes`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -383,20 +386,20 @@
             "notNull": false
           },
           {
-            "fieldPath": "linkedAbilities",
-            "columnName": "linked_abilities",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "talentSlot",
-            "columnName": "talent_slot",
+            "fieldPath": "shardGrants",
+            "columnName": "shard_grants",
             "affinity": "INTEGER",
             "notNull": false
           },
           {
-            "fieldPath": "abilitySlot",
-            "columnName": "ability_slot",
+            "fieldPath": "shardDescription",
+            "columnName": "shard_description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "slot",
+            "columnName": "slot",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -432,13 +435,13 @@
           },
           {
             "fieldPath": "aghanim",
-            "columnName": "aghanim",
+            "columnName": "scepter_description",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "aghanimGrants",
-            "columnName": "aghanim_grants",
+            "fieldPath": "scepterGrants",
+            "columnName": "scepter_grants",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -456,7 +459,19 @@
           "autoGenerate": false
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "heroes",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "hero_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "items",
@@ -584,7 +599,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3bceca081079085854ad133ac55c6110')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6fbae28c8a536cec1e6741d365097315')"
     ]
   }
 }

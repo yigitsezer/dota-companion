@@ -1,12 +1,11 @@
 package com.yigitsezer.dotacompanion.data.dotabase
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import retrofit2.Converter
 
 @Entity(tableName = "heroes")
 class Hero {
-    @ColumnInfo(name = "id")
+    @ColumnInfo(name = "id", index = true)
     @PrimaryKey
     var id = 0
 
@@ -48,9 +47,6 @@ class Hero {
 
     @ColumnInfo(name = "portrait")
     var portrait: String? = null
-
-    @ColumnInfo(name = "talents")
-    var talents: String? = null
 
     @ColumnInfo(name = "color")
     var color: String? = null
@@ -129,7 +125,6 @@ class Hero {
 
     @ColumnInfo(name = "is_melee")
     var melee: Int? = null
-    set(value) {field = value}
 
     @ColumnInfo(name = "material")
     var material: String? = null

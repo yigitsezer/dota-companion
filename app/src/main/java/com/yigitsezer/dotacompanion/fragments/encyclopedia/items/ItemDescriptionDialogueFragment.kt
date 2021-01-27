@@ -57,7 +57,6 @@ class ItemDescriptionDialogueFragment : DialogFragment() {
                 var curObj = json.get(i) as JSONObject
                 //TODO: I should be able to come up with a better solution but does it really matter that much?
                 if (curObj.has("footer") && curObj.has("header")) {
-                    Log.d("HELLOW", ""+curObj)
                     var value = curObj.get("value").toString()
                     if (curObj.get("header") == "-")
                         value = value.toInt().absoluteValue.toString()

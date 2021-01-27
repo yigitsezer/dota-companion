@@ -36,9 +36,8 @@ class ItemsFragment : Fragment() {
         val db = (activity?.application as DotaApplication).getDb()
         viewModel = ViewModelProvider(this, MyViewModelFactory(db!!)).get(ItemSharedViewModel::class.java)
         viewModel!!.getItem(174)
-        Log.d("HELLOW", "asdasdasd")
         viewModel!!.itemLiveData.observe(viewLifecycleOwner, Observer {
-            Log.d("HELLOW", ""+ it.localized_name)
+            //Log.d("HELLOW", ""+ it.localized_name)
         })
     }
 
